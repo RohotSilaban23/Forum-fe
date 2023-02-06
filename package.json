@@ -1,0 +1,16 @@
+{
+  "name": "rohot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "helloworld.js",
+  "scripts": {
+    "start": "node helloworld",
+    "fol": "ls ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rohot",
+  "license": "ISC",
+  "dependencies": {
+    "validator": "^13.9.0"
+  }
+}
