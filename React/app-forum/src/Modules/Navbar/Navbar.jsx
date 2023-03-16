@@ -14,7 +14,7 @@ const NavbarComponent = () => {
         >
         <Navbar.Brand to={"/Dashord"} >
           <div className="flex justify-center">
-            <h1 className='text-center text-6xl' >FORUMNIME</h1>
+            <h1 className='text-center text-4xl' >FORUMNIME</h1>
           </div>
         </Navbar.Brand>
         <div className="flex md:order-2">

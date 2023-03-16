@@ -13,11 +13,15 @@ class CountContainers extends React.Component {
                    <Table>
                        <Table.Head className='justify-center'>
                           <Table.HeadCell>
-                              Jumlah Post
+                              Jumlah User
+                          </Table.HeadCell>
+                          <Table.HeadCell>
+                              Jumlah Postingan
                           </Table.HeadCell>
                        </Table.Head>
                        <Table.Body>
                            <Table.Row>
+                               <Table.Cell>{this.props.jumlahAnggota}</Table.Cell>
                                <Table.Cell>{this.props.jumlahPostingan}</Table.Cell>
                            </Table.Row>
                        </Table.Body>
@@ -40,6 +44,7 @@ class CountContainers extends React.Component {
           <div className="commentContainer">
           
              <CountContainers
+              jumlahAnggota={this.props.data.length}
               jumlahPostingan={this.props.data.length}
              />
           </div>

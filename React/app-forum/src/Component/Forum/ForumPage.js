@@ -1,10 +1,10 @@
 import React from 'react';
 import { faker } from '@faker-js/faker';
 import PostData from './PostComponent';
-import ForumData from './ForumComponent';
-import DataProfile from './ProfileComponent';
+import ListData from './ListAnggotaComponent';
+import DataForum from './DescComponent';
 import CountData from './CountComponent';
-import { Button, Card } from 'flowbite-react';
+import { Button, Card, Avatar} from 'flowbite-react';
 import { Box, Grid } from '@mui/material';
 
 const dataPost =[{
@@ -18,7 +18,15 @@ const dataPost =[{
  {
     image : faker.image.avatar(),
     date : faker.date.recent(),
-    name : "Rohot Silaban",
+    name : "Rona Silaban",
+    Comment : faker.lorem.lines(),
+    like: faker.random.numeric(),
+    unlike: faker.random.numeric()
+ },
+ {
+    image : faker.image.avatar(),
+    date : faker.date.recent(),
+    name : "Reynaldi",
     Comment : faker.lorem.lines(),
     like: faker.random.numeric(),
     unlike: faker.random.numeric()
@@ -30,11 +38,50 @@ const dataPost =[{
     Comment : faker.lorem.lines(),
     like: faker.random.numeric(),
     unlike: faker.random.numeric()
+ },
+ {
+    image : faker.image.avatar(),
+    date : faker.date.recent(),
+    name : "Rona Silaban",
+    Comment : faker.lorem.lines(),
+    like: faker.random.numeric(),
+    unlike: faker.random.numeric()
+ },
+ {
+    image : faker.image.avatar(),
+    date : faker.date.recent(),
+    name : "Reynaldi",
+    Comment : faker.lorem.lines(),
+    like: faker.random.numeric(),
+    unlike: faker.random.numeric()
  }
  ]
 
- const ProfileData = [{
+ const ListAnggota = [{
     name : "Rohot Silaban",
+    image : faker.image.avatar(),
+    imageCover : faker.image.avatar(),
+    jk: "laki-laki",
+    dateBirth: "15 Febuary 2001",
+    email : "upchh@example.com",
+    phone : "08123456789",
+    hobby : "menbaca Buku",
+    address : faker.address.streetAddress()
+ },
+ {
+    name : "Rona Silaban",
+    image : faker.image.avatar(),
+    imageCover : faker.image.avatar(),
+    jk: "laki-laki",
+    dateBirth: "15 Febuary 2001",
+    email : "upchh@example.com",
+    phone : "08123456789",
+    hobby : "menbaca Buku",
+    address : faker.address.streetAddress()
+    
+ },
+ {
+    name : "Reynaldy",
     image : faker.image.avatar(),
     imageCover : faker.image.avatar(),
     jk: "laki-laki",
@@ -46,33 +93,28 @@ const dataPost =[{
     
  }]
 
- const listForum = [
+ const Forum = [
   {
     nameForum: "One Piece Lover",
     image : faker.image.avatar(),
     desc: "Pecinta One Piece",
-  },
-  {
-    nameForum: "Naruto Lover",
-    image : faker.image.avatar(),
-    desc: "Pecinta Naruto",
-    date: faker.date.recent(),
+    date: faker.date.recent()
   }
  ]
-const ProfilePage = () => {
+const ForumPage = () => {
     return (
         <div className=" my-2" > 
            <div>
             
            </div>
-            <Card  style={{backgroundImage: `${ProfileData[0].imageCover}`}} >
-                <div className="flex gap-2 justify-center">
-                    <img
-                    className="mb-3 h-24 w-24 rounded-full shadow-lg"
-                    src={ProfileData[0].image}
-                    alt={ProfileData[0].name}
-                    />
-                    <p className='text-6xl mt-4'>{ProfileData[0].name}</p>
+            <Card >
+                <div className="flex gap-3 justify-center ">
+                      <Avatar
+                        img={Forum[0].image}
+                        rounded={true}
+                        size="lg"
+                        />
+                    <p className='text-3xl mt-3'>{Forum[0].nameForum}</p>
                 </div>
             </Card>
             <Box>
@@ -81,15 +123,19 @@ const ProfilePage = () => {
                   <Grid item xs={3} md={3} lg={3} style={{height:'100vh',position:"fixed",width:'100%'}} >
                     <div>
                       <Card>
-                        Tentang Diri
-                        <DataProfile data={ProfileData}/>
+                        Desc
+                       <DataForum data={Forum}/>
                       </Card>
                     </div>
                   </Grid>
                 </Grid>
                 <Grid item sm={6} md={6} lg={6} className='pag-1 mr-1' align="center">
+                    <Card>
+                        Post
+                       
+                    </Card>
                     <Card className='card-post'>
-                          <h1>Your Postingan</h1>
+                          <h1>Postingan Forum</h1>
                           <div className='post-view'>
                           <PostData data={dataPost}/>
                           </div>
@@ -97,19 +143,17 @@ const ProfilePage = () => {
                 </Grid>
                 <Grid item sm={3} md={3} lg={3} style={{height:'100vh',position:"fixed",right:0}}>
                   <div>
-                  <Card>  
-                     <CountData data={dataPost}/>
-                  </Card>
+                    <Card>  
+                        <CountData data={dataPost}/>
+                    </Card>
                   </div>
                   <div>
-                      <div >
                         <Card>
                             <h1>List Forum Anda</h1>
                             <div className='overflow-y-scroll h-[270px] max-h-full'>
-                              <ForumData data={listForum} />
+                              <ListData data={ListAnggota} />
                             </div>
                         </Card>
-                      </div>
                   </div>
                 </Grid>
               </Grid>
@@ -118,4 +162,4 @@ const ProfilePage = () => {
     )
 }
 
-export default ProfilePage;
+export default ForumPage;

@@ -16,7 +16,7 @@ class PostContainers extends React.Component {
           // menampilkan disain ui
           <div className="max-w-[100%] my-1.5">
                 <Card>
-                    <div className="flex flex-wrap gap-2 border-b border-gray-200">
+                    <div className="flex gap-2 border-b border-gray-200">
                         <Avatar
                         img={this.props.avatar}
                         rounded={true}
@@ -33,8 +33,9 @@ class PostContainers extends React.Component {
                                  <Button className='mx-1.5'>Unlike</Button>
                         </div>
                         <div className='flex justify-end '>
-                                    <Button>Comment</Button>
+                              <Button>Comment</Button>
                         </div>
+                       
                     </div>
                    
                     

@@ -157,7 +157,7 @@ const DashbordPage = () => {
          
       </div>
             </Grid>
-            <Grid item sm={3} md={3} lg={3} style={{height:'100vh',position:"fixed",right:0}}>
+            <Grid item sm={3} md={3} lg={3} style={{height:'100vh',position:"fixed",right:"0"}}>
             <div>
             <Card>  
                

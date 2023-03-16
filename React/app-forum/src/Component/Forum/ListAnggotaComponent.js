@@ -13,23 +13,22 @@ class ForumContainers extends React.Component {
             <div className="max-w-[100%] my-1.5 container mx-auto ">
                 <div>
                 <Card>
-                    <div className='border-b border-gray-200 '>
-                        <div className="flex flex-wrap gap-2">
+                    <div >
+                        <div className="flex flex-wrap gap-2 border-b border-gray-200">
                             <Avatar
                             img={this.props.avatar}
                             rounded={true}
-                            size="lg"
+                            size="sm"
                             />
-                            <h2 className='text-center text-4xl mt-3'>{this.props.name}</h2> 
+                            <a className='text-center mt-1' href='/Forum'>{this.props.name}</a> 
+                            <div className='flex justify-end'>
+                                <Button>keluar</Button>
+                            </div>
+                            
                         </div> 
-                        <div className='flex justify-end'>
-                                <div>
-                                    <Button >Join</Button>
-                                </div>
-                        </div>
+                         
                     </div>
-                    
-                    <p>{this.props.desc}</p>
+                    <span>Tanggal Bergabung {this.props.date}</span>
                 </Card>
                 </div>
                 
@@ -38,7 +37,7 @@ class ForumContainers extends React.Component {
        }
   }
  
-  class ForumData extends React.Component {
+  class ListData extends React.Component {
     constructor(props) {
        super(props);
        this.state = {
@@ -54,8 +53,9 @@ class ForumContainers extends React.Component {
                 <div className="body-post-3">
                     <ForumContainers
                     avatar={data.image}
-                    name={data.nameForum}
+                    name={data.name}
                     desc = {data.Desc} 
+                    date= {moment(data.date).format('LL')}
                     />
                 </div>
             </div>
@@ -68,4 +68,4 @@ class ForumContainers extends React.Component {
     }
   }
 
-export default ForumData;
+export default ListData;
