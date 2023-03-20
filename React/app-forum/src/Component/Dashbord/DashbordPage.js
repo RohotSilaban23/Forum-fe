@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { faker } from '@faker-js/faker';
 import PostData from './PostComponent';
 import ForumData from './ForumComponent';
@@ -7,6 +7,7 @@ import CountData from './CountComponent'
 import { Button, Card, Carousel } from 'flowbite-react';
 import { Grid,Box } from '@mui/material';
 import "./dashboard.css"
+import { Link } from 'react-router-dom';
 
 
 
@@ -116,68 +117,45 @@ const dataPost =[{
 
 
 const DashbordPage = () => {
-   
+  
     return (
       <Box >
          <Grid container>
             <Grid item sm={3} md={3} lg={3} >
-            <Grid item sm={3} md={3} lg={3} style={{height:'100vh',position:"fixed",width:'100%'}}>
-               <div>
-                  <Card>
-                     <Button className='text-xl'>Create New Forum</Button>
-                  </Card>
-                  <div className='gap-y-0.5'>
-            <Card className='mt-2'>
-               <div className="h-56 sm:h-64 xl:h-80 2xl:h-96 ">
-                  <Carousel slideInterval={2000}>
-                        {dataForum.map((data) =>{
-                           return(
-                                 <img 
-                                 src={data.image}
-                                 />
-                           )
-                        })}
-                     </Carousel>
-               </div> 
-            </Card>
-            
-         </div>
-               </div>
-            </Grid>
-            </Grid>
-         <Grid item sm={6} md={6} lg={6} className='pag-1 mr-1' align="center">
-         <Card className='card-post'>
-               <h1>Forum Yang Tersedia</h1>
-               <div className='post-view'>
-               <ForumData data={dataForum}/>
-               </div>
-         </Card>
-            <div>
-
+               <Grid item sm={3} md={3} lg={3} style={{height:'100vh',position:"fixed",width:'100%'}}>
+                  <div  className="mt-2">
+                     <Card>
+                        <Button className='text-xl'><Link to={"/Dasbord/NewForum"}>Create New Forum</Link></Button>
+                     </Card>
+                     <div className='gap-y-0.5'>
          
-      </div>
+                           <div className="h-56 sm:h-64 xl:h-80 2xl:h-96 mt-2 ">
+                              <Carousel  arrowIcon={false} slideInterval={2000}>
+                                    {dataForum.map((data) =>{
+                                       return(
+                                             <img 
+                                             src={data.image}
+                                             />
+                                       )
+                                    })}
+                                 </Carousel>
+                           </div> 
+                   
+                     </div>
+                  </div>
+               </Grid>
             </Grid>
-            <Grid item sm={3} md={3} lg={3} style={{height:'100vh',position:"fixed",right:"0"}}>
-            <div>
-            <Card>  
-               
-               <CountData data={dataForum}/>
-            </Card>
-            
-         </div>
-
-         <div>
-            <div >
-               <Card>
+            <Grid item sm={5} md={5} lg={5} className='pag-1 mr-1' align="center">
+                      <ForumData data={dataForum}/>
+            </Grid>
+            <Grid item sm={4} md={4} lg={4} style={{height:'100vh',position:"fixed",right:"0"}}>
+                <CountData data={dataForum}/>
+               <Card className="mt-2">
                   <h1>Post Trending</h1>
                   <div className='overflow-y-scroll h-[270px] max-h-full'>
                      <PostData data={dataPost}/>
                   </div>
-                  
-               </Card></div>
-            </div>
-            
-  
+               </Card>
             </Grid>
          </Grid>
       </Box>

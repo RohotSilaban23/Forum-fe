@@ -5,7 +5,7 @@ import { Outlet, Link } from 'react-router-dom'
 const NavbarComponent = () => {
   return (
   <div>
-    <div style={{height:"100px",background:"#fff"}}>
+    <div style={{height:"100px"}} className='h-14 bg-gradient-to-r from-sky-500 to-indigo-500'>
         <Navbar
         className='shadow-xl h-[100px]' 
         style={{position:'fixed',width:'100%',top:0, zIndex :20}}

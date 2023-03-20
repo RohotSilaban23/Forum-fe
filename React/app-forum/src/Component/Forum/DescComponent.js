@@ -1,48 +1,46 @@
 import React from 'react';
 import moment from 'moment';
 import { Card, Avatar, Button } from 'flowbite-react';
+import { Link } from 'react-router-dom';
 
 
-class DataForumComponent extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            count: 0,
-        } 
-    }
-
-    render () {
+const DataForumComponent = (props) => {
+    const {image, name, desc, jk} = props;
         return (
-            <div>
+            <div className='mt-2'>
                 <Card>
-                    <p>{this.props.name}</p>
-                    <p>{this.props.datebirth}</p>
-                    <p>{this.props.jk}</p>
+                    <Avatar
+                            img={image}
+                            rounded={true}
+                            size="lg"
+                            />
                 </Card>
+                <Card>
+                    <p>{name}</p>
+                    <p>{desc}</p>
+                    <p>{jk}</p>
+                    <div className='flex justify-end'>
+                        <Button><Link to={"/Forum/Edit"}>Edit Forum Profile</Link></Button>
+                    </div>
+                </Card>
+               
             </div>
         )
     }
-}
 
-class DataForum extends React.Component {
-    constructor(props) { 
-        super(props);
-        this.state = {
-            count: 0,
-        }
-    }
 
-    render () {
-        return this.props.data.map((data, index) => (
+const DataForum = (props) => {
+        return props.data.map((data, index) => (
             <div key={index}>
                 <DataForumComponent
-                tglPembuatan={data.dateBirth}
-                name={data.name}
-                Desc={data.jk}
+                date={data.date}
+                name={data.nameForum}
+                desc={data.desc}
+                image={data.image}
                  />
             </div>
         ))
     }
-}
+
 
 export default DataForum;

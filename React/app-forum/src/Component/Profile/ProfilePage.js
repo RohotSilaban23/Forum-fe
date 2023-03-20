@@ -11,7 +11,7 @@ const dataPost =[{
     image : faker.image.avatar(),
     date : faker.date.recent(),
     name : "Rohot Silaban",
-    Comment : faker.lorem.lines(),
+    Post : faker.lorem.lines(),
     like: faker.random.numeric(),
     unlike: faker.random.numeric()
  },
@@ -19,7 +19,7 @@ const dataPost =[{
     image : faker.image.avatar(),
     date : faker.date.recent(),
     name : "Rohot Silaban",
-    Comment : faker.lorem.lines(),
+    Post : faker.lorem.lines(),
     like: faker.random.numeric(),
     unlike: faker.random.numeric()
  },
@@ -27,7 +27,7 @@ const dataPost =[{
     image : faker.image.avatar(),
     date : faker.date.recent(),
     name : "Rohot Silaban",
-    Comment : faker.lorem.lines(),
+    Post : faker.lorem.lines(),
     like: faker.random.numeric(),
     unlike: faker.random.numeric()
  }
@@ -62,44 +62,19 @@ const dataPost =[{
 const ProfilePage = () => {
     return (
         <div className=" my-2" > 
-           <div>
-            
-           </div>
-            <Card  style={{backgroundImage: `${ProfileData[0].imageCover}`}} >
-                <div className="flex gap-2 justify-center">
-                    <img
-                    className="mb-3 h-24 w-24 rounded-full shadow-lg"
-                    src={ProfileData[0].image}
-                    alt={ProfileData[0].name}
-                    />
-                    <p className='text-6xl mt-4'>{ProfileData[0].name}</p>
-                </div>
-            </Card>
             <Box>
               <Grid container>
                 <Grid tem xs={3} md={3} lg={3}>
                   <Grid item xs={3} md={3} lg={3} style={{height:'100vh',position:"fixed",width:'100%'}} >
-                    <div>
-                      <Card>
-                        Tentang Diri
-                        <DataProfile data={ProfileData}/>
-                      </Card>
-                    </div>
+                      <DataProfile data={ProfileData}/>
                   </Grid>
                 </Grid>
-                <Grid item sm={6} md={6} lg={6} className='pag-1 mr-1' align="center">
-                    <Card className='card-post'>
-                          <h1>Your Postingan</h1>
-                          <div className='post-view'>
-                          <PostData data={dataPost}/>
-                          </div>
-                    </Card>
+                <Grid item sm={5} md={5} lg={5} className='pag-1 mr-1' align="center">
+                    <PostData data={dataPost}/>  
                 </Grid>
-                <Grid item sm={3} md={3} lg={3} style={{height:'100vh',position:"fixed",right:0}}>
+                <Grid item sm={4} md={4} lg={4} style={{height:'100vh',position:"fixed",right:0, width:'100%'}}>
                   <div>
-                  <Card>  
                      <CountData data={dataPost}/>
-                  </Card>
                   </div>
                   <div>
                       <div >

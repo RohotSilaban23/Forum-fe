@@ -1,46 +1,42 @@
 import React from 'react';
 import moment from 'moment';
 import { Card, Avatar, Button } from 'flowbite-react';
+import { Link } from 'react-router-dom';
 
 
-class DataDiriComponent extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            count: 0,
-        } 
-    }
-
-    render () {
+const DataDiriComponent =(props) => {
+    const {image, name,datebirth, email, jk, hobby, phone, addres} = props
         return (
             <div>
+                 <Card  style={{backgroundColor: ''}} className="mt-2" >
+                    <div className="flex gap-2 justify-center">
+                        <img
+                        className="mb-3 h-24 w-24 rounded-full shadow-lg"
+                        src={image}
+                        alt={name}
+                        />
+                    </div>
+                </Card>
                 <Card>
-                    <p>{this.props.name}</p>
-                    <p>{this.props.datebirth}</p>
-                    <p>{this.props.jk}</p>
-                    <p>{this.props.email}</p>
-                    <p>{this.props.hobby}</p>
-                    <p>{this.props.phone}</p>
-                    <p>{this.props.adddres}</p>
+                    
+                    <p>{name}</p>
+                    <p>{datebirth}</p>
+                    <p>{jk}</p>
+                    <p>{email}</p>
+                    <p>{hobby}</p>
+                    <p>{phone}</p>
+                    <p>{addres}</p>
                     <div className='flex justify-end'>
-                        <Button>Edit Data</Button>
+                        <Button><Link to={"/Profile/edit"}>Edit Data</Link></Button>
                     </div>
                 </Card>
             </div>
         )
     }
-}
 
-class DataProfile extends React.Component {
-    constructor(props) { 
-        super(props);
-        this.state = {
-            count: 0,
-        }
-    }
 
-    render () {
-        return this.props.data.map((data, index) => (
+const DataProfile = (props) => {
+        return props.data.map((data, index) => (
             <div key={index}>
                 <DataDiriComponent 
                 datebirth={data.dateBirth}
@@ -49,12 +45,13 @@ class DataProfile extends React.Component {
                 email={data.email}
                 phone={data.phone}
                 hobby={data.hobby}
-                adddres={data.address}
+                addres={data.address}
+                image={data.image}
 
                  />
             </div>
         ))
     }
-}
+
 
 export default DataProfile;
