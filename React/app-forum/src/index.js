@@ -4,11 +4,19 @@ import 'bootstrap';
 import "./index.css"
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { UserContextProvider } from "./Context/context";
+import { BrowserRouter as Router } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
 
+const client = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <UserContextProvider>
+      <QueryClientProvider client={client}>
+      <App />
+      </QueryClientProvider>
+    </UserContextProvider>
   </React.StrictMode>
 );
 

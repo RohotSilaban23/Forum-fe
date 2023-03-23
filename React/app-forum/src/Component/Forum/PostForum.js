@@ -1,9 +1,12 @@
 import { Card, Avatar, Button } from 'flowbite-react';
-import React from 'react';
+import React,{useState} from 'react';
 import SendIcon from '@mui/icons-material/Send';
 
 const PostinganComponent = (props) => {
    const {avatar, name} = props;
+   const [form, setForm] = useState({
+    
+   })
 
         return (
           <>

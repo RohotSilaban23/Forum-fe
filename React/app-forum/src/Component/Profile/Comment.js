@@ -17,7 +17,7 @@ const Comments =(props) => {
                             <p>{name}</p>
                             <span>{day} at {time}</span>
                     </div>
-                    {comment}
+                    <p className='text-left'>{comment}</p>
                 </Card>
                     
             </div>

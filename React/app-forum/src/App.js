@@ -21,7 +21,7 @@ function App() {
           <Route path="/" exact element={<Navbar/>}>
              <Route path="Dashbord" element={<Home />}/>
              <Route path="Profile" element={<Profile />}/>
-             <Route path="Forum" element={<Forum />}/>
+             <Route path="Forum/:idForum" element={<Forum />}/>
              <Route path="Forum/Edit" element={<EditForum />}/>
              <Route path="Dasbord/NewForum" element={<CreateForum />}/>
              <Route path="Profile/Edit" element={< CreateProfile />}/>

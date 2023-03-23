@@ -8,6 +8,8 @@ import { Button, Card, Carousel } from 'flowbite-react';
 import { Grid,Box } from '@mui/material';
 import "./dashboard.css"
 import { Link } from 'react-router-dom';
+import {API}  from '../../config/API'
+import { useQuery } from 'react-query'
 
 
 
@@ -116,8 +118,17 @@ const dataPost =[{
 
 
 
+
 const DashbordPage = () => {
-  
+   let { data: Forum} = useQuery("ForumCache", async () => {
+      const response = await API.get("/Forum");
+      return response.data.data;
+    });
+    const GetForum = {Forum}
+
+    console.log("getData", GetForum)
+
+
     return (
       <Box >
          <Grid container>
@@ -146,7 +157,7 @@ const DashbordPage = () => {
                </Grid>
             </Grid>
             <Grid item sm={5} md={5} lg={5} className='pag-1 mr-1' align="center">
-                      <ForumData data={dataForum}/>
+                      <ForumData data={GetForum}/>
             </Grid>
             <Grid item sm={4} md={4} lg={4} style={{height:'100vh',position:"fixed",right:"0"}}>
                 <CountData data={dataForum}/>
